@@ -1,7 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { bool } from 'prop-types';
+
+const { width, height } = Dimensions.get('window');
 
 const YourComponent = ({navigation}) => {
   return (
@@ -12,13 +15,14 @@ const YourComponent = ({navigation}) => {
         style={styles.image}
       />
       {/* 큰 텍스트 */}
-      <Text style={styles.headerText}>Welcome to Your App!</Text>
+      <Text style={styles.headerText}>VolunTip</Text>
       {/* 작은 설명 텍스트 */}
       <Text style={styles.descriptionText}>
-        This is a simple app to demonstrate React Native components.
+        Discover volunteer opportunites{'\n'}
+        & donate with your tip!
       </Text>
       {/* Get Started 버튼 */}
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Main')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LoginPage')}>
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
     </View>
@@ -27,34 +31,46 @@ const YourComponent = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#F0F0F0',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+
   },
   image: {
-    width: 200, // 원하는 크기로 조정
-    height: 200, // 원하는 크기로 조정
-    borderRadius: 100, // 원형 이미지를 원한다면 이 값을 조정
+    width: width - 40, // 화면의 너비로 설정
+    height: 300, // 화면의 높이로 설정
+    borderRadius: 20, // 테두리를 둥글게 처리
+    resizeMode: 'cover', // 이미지가 컨테이너에 꽉 차도록 조정
+    marginBottom: 30,
+    marginTop: 40
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 50,
     fontWeight: 'bold',
-    marginVertical: 10,
+    
   },
   descriptionText: {
-    fontSize: 16,
+    fontSize: 20,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 60,
+    color: '#808080'
   },
   button: {
-    backgroundColor: '#007bff',
+    width: width - 40,
+    height: 50,
+    backgroundColor: '#F2D2CD',
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
+
     color: '#ffffff',
     fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 

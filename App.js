@@ -5,28 +5,23 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-import dummy from "./screens/dummy";
+import FirstPage from "./screens/FirstPage";
+import LoginPage from "./screens/LoginPage";
 import MainPage from "./screens/MainPage";
 
 
 const Stack = createNativeStackNavigator();
 
-
-
-
-
 const App = () => {
-
-
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Dummy" component={dummy} options={{ headerShown: false }} />
+        <Stack.Screen name="FirstPage" component={FirstPage} options={{ headerShown: false }} />
+        <Stack.Screen name="LoginPage" component={LoginPage} options={{ headerShown: false }} />
         <Stack.Screen name="Main" component={MainPage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
 export default App;
 
