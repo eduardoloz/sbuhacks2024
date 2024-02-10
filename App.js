@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 
 import FeedScreen from './screens/FeedScreen';
 import CreateScreen from './screens/CreateScreen';
@@ -30,8 +31,8 @@ export default function App() {
 
               return <Ionicons name={iconName} size={size} color={color} />;
           },
-          })}
-          >
+        })}
+      >
           <BottomTab.Screen name = "Feed" component={FeedScreen} />
           <BottomTab.Screen name = "Search" component={SearchScreen} />
           <BottomTab.Screen name = "Create" component={CreateScreen} />
@@ -41,11 +42,11 @@ export default function App() {
       
     
 
-      <View style={styles.container}>
+      {/* <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
         <Text>hahaha does this work</Text>
         <StatusBar style="auto" />
-      </View>
+      </View> */}
 
     </NavigationContainer>
   );
