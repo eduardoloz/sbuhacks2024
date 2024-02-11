@@ -37,17 +37,18 @@ const SearchScreen = ({ navigation }) => {
   {/* 아이템 목록 */}
   <View style={styles.itemContainer}>
     <View style={styles.imagesContainer}>
+    <Image style={styles.sideImage} source={{uri: 'https://ifh.cc/g/bNhTMv.jpg'}} />
       <Image style={styles.mainImage} source={{uri: 'https://ifh.cc/g/oB0TJw.jpg'}} />
-      <Image style={styles.sideImage} source={{uri: 'https://ifh.cc/g/bNhTMv.jpg'}} />
+      
     </View>
     <View style = {styles.postWholeContainer}>
     <View style={styles.profileContainer}>
-      <Image style={styles.profileImage} source={{uri: 'https://ifh.cc/g/bmacV6.jpg'}} />
-      <Text style={styles.profileName}>Institution Name</Text>
+      <Image style={styles.profileImage} source={{uri: 'https://ifh.cc/g/qHDl5k.png'}} />
+      <Text style={styles.profileName}numberOfLines={3} ellipsizeMode="tail">Children & Youth, Community</Text>
     </View>
     
     <Text style={styles.description}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    This fund is designed for donors who want to support interventions that have the demonstrated ability to actually save lives.
     </Text>
   </View>
     </View>
@@ -55,17 +56,17 @@ const SearchScreen = ({ navigation }) => {
 
   <View style={styles.itemContainer}>
     <View style={styles.imagesContainer}>
-      <Image style={styles.mainImage} source={{uri: 'https://ifh.cc/g/oB0TJw.jpg'}} />
-      <Image style={styles.sideImage} source={{uri: 'https://ifh.cc/g/bNhTMv.jpg'}} />
+      <Image style={styles.mainImage} source={{uri: 'https://ifh.cc/g/tycTD7.jpg'}} />
+      <Image style={styles.sideImage} source={{uri: 'https://ifh.cc/g/lwdNnT.jpg'}} />
     </View>
     <View style = {styles.postWholeContainer}>
     <View style={styles.profileContainer}>
-      <Image style={styles.profileImage} source={{uri: 'https://ifh.cc/g/bmacV6.jpg'}} />
-      <Text style={styles.profileName}>Institution Name</Text>
+      <Image style={styles.profileImage} source={{uri: 'https://ifh.cc/g/zl8LAM.jpg'}} />
+      <Text style={styles.profileName}>Against Malaria Foundation</Text>
     </View>
     
     <Text style={styles.description}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    This general fund is a great opportunity for donors seeking to support the wide range of cost-effective, highly impactful charities that contribute to alleviating premature death and unnecessary suffering.
     </Text>
   </View>
     </View>
@@ -73,8 +74,9 @@ const SearchScreen = ({ navigation }) => {
 
   <View style={styles.itemContainer}>
     <View style={styles.imagesContainer}>
-      <Image style={styles.mainImage} source={{uri: 'https://ifh.cc/g/oB0TJw.jpg'}} />
-      <Image style={styles.sideImage} source={{uri: 'https://ifh.cc/g/bNhTMv.jpg'}} />
+      
+      <Image style={styles.sideImage} source={{uri: 'https://ifh.cc/g/6WBmp1.jpg'}} />
+      <Image style={styles.mainImage} source={{uri: 'https://ifh.cc/g/WApdXW.jpg'}} />
     </View>
     
     
@@ -82,12 +84,12 @@ const SearchScreen = ({ navigation }) => {
   </View>
   <View style = {styles.postWholeContainer}>
     <View style={styles.profileContainer}>
-      <Image style={styles.profileImage} source={{uri: 'https://ifh.cc/g/bmacV6.jpg'}} />
-      <Text style={styles.profileName}>Institution Name</Text>
+      <Image style={styles.profileImage} source={{uri: 'https://ifh.cc/g/JZW4yo.jpg'}} />
+      <Text style={styles.profileName}>Population Services International</Text>
     </View>
     
     <Text style={styles.description}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    This fund is for donors who seek to address the disproportionate burden on women and girls among people living in extreme poverty. Supporting effective charities like those listed below can help reshape gender norms worldwide, promote women’s inclusion and safety, and increase access to maternal healthcare and family planning services. In turn, supporting women and girls enhances the well-being of entire communities.
     </Text>
     </View>
   

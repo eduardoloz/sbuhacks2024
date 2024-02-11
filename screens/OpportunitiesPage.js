@@ -1,9 +1,130 @@
 import React, { useLayoutEffect } from 'react';
-import { ScrollView, View, Image, StyleSheet, Text, Dimensions,TouchableOpacity } from 'react-native';
+import { ScrollView, FlatList, View, Image, StyleSheet, Text, Dimensions,TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const { width } = Dimensions.get('window');
 
+
+const DATA = [
+  { id: '1', uri: 'https://ifh.cc/g/R6kRw0.jpg', title: 'Pet Therapy' },
+  { id: '2', uri: 'https://ifh.cc/g/OjpzfX.jpg', title: 'Host an International High School Exchange Student (Nationwide)' },
+  { id: '3', uri: 'https://ifh.cc/g/1tWvnh.jpg', title: 'EAC:Chance to Advance Seeks Volunteers to Mentor Youth' },
+  { id: '4', uri: 'https://ifh.cc/g/1KWxbZ.jpg', title: 'Grief Camp Volunteers Needed in Long Island' },
+  { id: '5', uri: 'https://ifh.cc/g/Kcq99r.jpg', title: 'Wyandanch Volunteers: Virtually work 1-on-1 with a kid impacted by chronic illness.' },
+  { id: '6', uri: 'https://ifh.cc/g/AMqcbx.jpg', title: 'Volunteer with children with special needs!' },
+];
+
+const VerticalDATA = [
+  {
+    id: '1',
+    userImageUri: 'https://ifh.cc/g/Wvonf4.jpg',
+    postImageUri: 'https://ifh.cc/g/3tlT74.jpg',
+    userName: 'Charlotte Johnson',
+    description: 'Engage in pet therapy with youth who have experienced complex trauma, and/or who suffer from physical, mental, or emotional difficulties. The volunteer needs to maintain the confidentiality of the youth in our programs.',
+  },
+  {
+    id: '2',
+    userImageUri: 'https://ifh.cc/g/rcM4OF.jpg',
+    postImageUri: 'https://ifh.cc/g/bBdG1S.jpg',
+    userName: 'Elizabeth Montgomery',
+    description: 'The Home with Friends program gives you the chance to get to know your Special Friends in the environment they are most comfortable in; their own homes. Together you can bake cookies, play games, create arts and crafts items, play in the snow, read books, or do just about anything you can think of!',
+  },
+  {
+    id: '3',
+    userImageUri: 'https://ifh.cc/g/dTxgGt.jpg',
+    postImageUri: 'https://ifh.cc/g/yRPn88.jpg',
+    userName: 'Isabella Fitzgerald',
+    description: 'Volunteers are needed to assist in operation of the Long Island National Wildlife Refuge Complex Visitor Center and Nature Store, located in Shirley, NY. If you like interacting with people, both young and old, this is the volunteer position for you!',
+  },
+  {
+    id: '4',
+    userImageUri: 'https://ifh.cc/g/N37omW.jpg',
+    postImageUri: 'https://ifh.cc/g/BbvW81.jpg',
+    userName: 'Alexander Montgomery',
+    description: 'Ready to have a fun experience? Ready to enjoy some cultural diversity? Ready to get inspired? Invite an international high school student to your home for a few weeks, a semester or even a full school year!',
+  },
+  {
+    id: '5',
+    userImageUri: 'https://ifh.cc/g/cA9nxV.jpg',
+    postImageUri: 'https://ifh.cc/g/HfwTbK.jpg',
+    userName: 'Joh',
+    description: 'Old Bethpage Village Restoration is looking for history enthusiasts to help recreate the atmosphere from the early 1800s. OBVR has multiple volunteer opportunities from farming to reenactor.',
+  },
+  {
+    id: '6',
+    userImageUri: 'https://ifh.cc/g/x53jgx.jpg',
+    postImageUri: 'https://ifh.cc/g/fRfyFg.jpg',
+    userName: 'Genevieve Alexandra Thompson',
+    description: 'Recruiting Organization: Suffolk County Safe Harbour Mentoring Program. The Safe Harbour Mentoring program has been established to engage and empower youth that have been impacted by human trafficking in Suffolk County, NY.',
+  },
+  {
+    id: '7',
+    userImageUri: 'https://ifh.cc/g/3pysWR.jpg',
+    postImageUri: 'https://ifh.cc/g/Ba9L3V.jpg',
+    userName: 'Adrianna Gabriella Rodriguez',
+    description: 'Causes For Kids needs Volunteers. We are looking for motivated and driven students and adults to want to make a difference. Your efforts will help causes for kids continue its mission.',
+  },
+];
+const PostItem = ({ item }) => {
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate('ProfileCard', {
+      userName: item.userName,
+      description: item.description,
+      postImageUri: item.postImageUri,
+    });
+  };
+
+  return (
+    <TouchableOpacity onPress={handlePress} style={styles.postContainer}>
+      <View style={styles.postHeader}>
+        <Image style={styles.postUserImage} source={{ uri: item.userImageUri }} />
+        <Text style={styles.headerText}>{item.userName}</Text>
+        <TouchableOpacity style={styles.moreIcon}>
+          <Ionicons name="ellipsis-horizontal" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
+      <Image style={styles.postImage} source={{ uri: item.postImageUri }} />
+      <Text style={styles.description} numberOfLines={4} ellipsizeMode="tail">
+        {item.description}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
+const PostsList = () => {
+  const renderItem = ({ item }) => <PostItem item={item} />; // 수정됨
+
+  return (
+    <FlatList
+      data={VerticalDATA}
+      renderItem={renderItem} // 수정됨
+      keyExtractor={item => item.id}
+    />
+  );
+};
+
+const Item = ({ uri, title }) => (
+  <View style={styles.imageContainer}>
+    <Image source={{ uri }} style={styles.horizontalImage} />
+    <Text style={styles.imageText} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
+  </View>
+);
+
+const MyHorizontalList = () => {
+  return (
+    <FlatList
+      data={DATA}
+      renderItem={({ item }) => <Item uri={item.uri} title={item.title} />}
+      keyExtractor={item => item.id}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+    />
+  );
+};
 
 const FeedScreen = ({ navigation }) => {
   useLayoutEffect(() => {
@@ -15,7 +136,7 @@ const FeedScreen = ({ navigation }) => {
         fontWeight: 'bold',
       },
       headerLeft: () => (
-        <TouchableOpacity style={{ marginLeft: 10 }} onPress={() => alert('Menu clicked!')}>
+        <TouchableOpacity style={{ marginLeft: 10 }} onPress={() => navigation.navigate("ProfileCard")}>
           <Ionicons name="menu" size={25} color="black" />
         </TouchableOpacity>
       ),
@@ -33,287 +154,17 @@ const FeedScreen = ({ navigation }) => {
     <View style={styles.recentContainer}>
           <Image
             style={styles.userImage}
-            source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }} // 여기에 실제 이미지 URL을 적어주세요.
+            source={{ uri: 'https://ifh.cc/g/lF2da4.jpg' }} // 여기에 실제 이미지 URL을 적어주세요.
           />
           <View style={styles.textContainer}>
             <Text style={styles.recentText}>Opportunities Held Recently</Text>
           </View>
         </View>
 
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-      <View style={styles.imageContainer}>
-        <Image source={{ uri: 'https://ifh.cc/g/R6kRw0.jpg' }} style={styles.horizontalImage} />
-        <Text style={styles.imageText}>Animal Feeding</Text>
-      </View>
-      <View style={styles.imageContainer}>
-      <Image source={{ uri: 'https://ifh.cc/g/OjpzfX.jpg' }} style={styles.horizontalImage} />
-        <Text style={styles.imageText}>Teaching</Text>
-      </View>
-      <View style={styles.imageContainer}>
-      <Image source={{ uri: 'https://ifh.cc/g/1tWvnh.jpg' }} style={styles.horizontalImage} />
-        <Text style={styles.imageText}>Care</Text>
-      </View>
-      <View style={styles.imageContainer}>
-      <Image source={{ uri: 'https://ifh.cc/g/1KWxbZ.jpg' }} style={styles.horizontalImage} />
-        <Text style={styles.imageText}>Event</Text>
-      </View>
-      <View style={styles.imageContainer}>
-      <Image source={{ uri: 'https://ifh.cc/g/Kcq99r.jpg' }} style={styles.horizontalImage} />
-        <Text style={styles.imageText}>Instrument</Text>
-      </View>
-      <View style={styles.imageContainer}>
-      <Image source={{ uri: 'https://ifh.cc/g/AMqcbx.jpg' }} style={styles.horizontalImage} />
-        <Text style={styles.imageText}>Day Care</Text>
-      </View>
-      </ScrollView>
+        <MyHorizontalList />
 
 
-      <View style={styles.postContainer}>
-      <View style={styles.postHeader}>
-        <View style={styles.postSpace}>
-        <Image
-          style={styles.postUserImage}
-          source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }}
-        />
-        <View style={styles.longRound}>
-          <Text style={styles.headerText}>Username</Text>
-        </View>
-        </View>
-        
-        <TouchableOpacity style={styles.moreIcon}>
-          <Ionicons name="ellipsis-horizontal" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-      
-      <Image
-        style={styles.postImage}
-        source={{ uri: 'https://ifh.cc/g/3tlT74.jpg' }}
-      />
-      
-      <Text style={styles.description}>Photo description here...</Text>
-      
-      <View style={styles.moreTextContainer}>
-        <Text style={styles.moreText}>more</Text>
-      </View>
-      
-      <View style={styles.actionsContainer}>
-        <Ionicons name="heart-outline" size={24} color="black" />
-        <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.actionIcon} />
-        <Ionicons name="share-social-outline" size={24} color="black" style={styles.actionIconRight} />
-      </View>
-    </View>
-
-    <View style={styles.postContainer}>
-      <View style={styles.postHeader}>
-      <View style={styles.postSpace}>
-        <Image
-          style={styles.postUserImage}
-          source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }}
-        />
-        <View style={styles.longRound}>
-          <Text style={styles.headerText}>Username</Text>
-        </View>
-        </View>
-        <TouchableOpacity style={styles.moreIcon}>
-          <Ionicons name="ellipsis-horizontal" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-      
-      <Image
-        style={styles.postImage}
-        source={{ uri: 'https://ifh.cc/g/bBdG1S.jpg' }}
-      />
-      
-      <Text style={styles.description}>Photo description here...</Text>
-      
-      <View style={styles.moreTextContainer}>
-        <Text style={styles.moreText}>more</Text>
-      </View>
-      
-      <View style={styles.actionsContainer}>
-        <Ionicons name="heart-outline" size={24} color="black" />
-        <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.actionIcon} />
-        <Ionicons name="share-social-outline" size={24} color="black" style={styles.actionIconRight} />
-      </View>
-    </View>
-
-    <View style={styles.postContainer}>
-      <View style={styles.postHeader}>
-      <View style={styles.postSpace}>
-        <Image
-          style={styles.postUserImage}
-          source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }}
-        />
-        <View style={styles.longRound}>
-          <Text style={styles.headerText}>Username</Text>
-        </View>
-        </View>
-        <TouchableOpacity style={styles.moreIcon}>
-          <Ionicons name="ellipsis-horizontal" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-
-      <Image
-        style={styles.postImage}
-        source={{ uri: 'https://ifh.cc/g/yRPn88.jpg' }}
-      />
-      
-      <Text style={styles.description}>Photo description here...</Text>
-      
-      <View style={styles.moreTextContainer}>
-        <Text style={styles.moreText}>more</Text>
-      </View>
-      
-      <View style={styles.actionsContainer}>
-        <Ionicons name="heart-outline" size={24} color="black" />
-        <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.actionIcon} />
-        <Ionicons name="share-social-outline" size={24} color="black" style={styles.actionIconRight} />
-      </View>
-    </View>
-
-    <View style={styles.postContainer}>
-      <View style={styles.postHeader}>
-      <View style={styles.postSpace}>
-        <Image
-          style={styles.postUserImage}
-          source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }}
-        />
-        <View style={styles.longRound}>
-          <Text style={styles.headerText}>Username</Text>
-        </View>
-        </View>
-        <TouchableOpacity style={styles.moreIcon}>
-          <Ionicons name="ellipsis-horizontal" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-      
-
-      <Image
-        style={styles.postImage}
-        source={{ uri: 'https://ifh.cc/g/yRPn88.jpg' }}
-      />
-      
-      <Text style={styles.description}>Photo description here...</Text>
-      
-      <View style={styles.moreTextContainer}>
-        <Text style={styles.moreText}>more</Text>
-      </View>
-      
-      <View style={styles.actionsContainer}>
-        <Ionicons name="heart-outline" size={24} color="black" />
-        <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.actionIcon} />
-        <Ionicons name="share-social-outline" size={24} color="black" style={styles.actionIconRight} />
-      </View>
-    </View>
-
-    <View style={styles.postContainer}>
-      {/* 첫 번째 줄 */}
-      <View style={styles.postHeader}>
-      <View style={styles.postSpace}>
-        <Image
-          style={styles.postUserImage}
-          source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }}
-        />
-        <View style={styles.longRound}>
-          <Text style={styles.headerText}>Username</Text>
-        </View>
-        </View>
-        <TouchableOpacity style={styles.moreIcon}>
-          <Ionicons name="ellipsis-horizontal" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-      
-
-      <Image
-        style={styles.postImage}
-        source={{ uri: 'https://ifh.cc/g/HfwTbK.jpg' }}
-      />
-      
-      <Text style={styles.description}>Photo description here...</Text>
-      
-      <View style={styles.moreTextContainer}>
-        <Text style={styles.moreText}>more</Text>
-      </View>
-      
-      <View style={styles.actionsContainer}>
-        <Ionicons name="heart-outline" size={24} color="black" />
-        <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.actionIcon} />
-        <Ionicons name="share-social-outline" size={24} color="black" style={styles.actionIconRight} />
-      </View>
-    </View>
-    <View style={styles.postContainer}>
-      <View style={styles.postHeader}>
-      <View style={styles.postSpace}>
-        <Image
-          style={styles.postUserImage}
-          source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }}
-        />
-        <View style={styles.longRound}>
-          <Text style={styles.headerText}>Username</Text>
-        </View>
-        </View>
-        <TouchableOpacity style={styles.moreIcon}>
-          <Ionicons name="ellipsis-horizontal" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-
-
-
-      <Image
-        style={styles.postImage}
-        source={{ uri: 'https://ifh.cc/g/fRfyFg.jpg' }}
-      />
-      
-
-      <Text style={styles.description}>Photo description here...</Text>
-      
-
-      <View style={styles.moreTextContainer}>
-        <Text style={styles.moreText}>more</Text>
-      </View>
-      
-
-      <View style={styles.actionsContainer}>
-        <Ionicons name="heart-outline" size={24} color="black" />
-        <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.actionIcon} />
-        <Ionicons name="share-social-outline" size={24} color="black" style={styles.actionIconRight} />
-      </View>
-    </View>
-    <View style={styles.postContainer}>
-      <View style={styles.postHeader}>
-      <View style={styles.postSpace}>
-        <Image
-          style={styles.postUserImage}
-          source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }}
-        />
-        <View style={styles.longRound}>
-          <Text style={styles.headerText}>Username</Text>
-        </View>
-        </View>
-        
-        <TouchableOpacity style={styles.moreIcon}>
-          <Ionicons name="ellipsis-horizontal" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-      
-
-      <Image
-        style={styles.postImage}
-        source={{ uri: 'https://ifh.cc/g/Ba9L3V.jpg' }}
-      />
-      
-      <Text style={styles.description}>Photo description here...</Text>
-      
-      <View style={styles.moreTextContainer}>
-        <Text style={styles.moreText}>more</Text>
-      </View>
-      
-      <View style={styles.actionsContainer}>
-        <Ionicons name="heart-outline" size={24} color="black" />
-        <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.actionIcon} />
-        <Ionicons name="share-social-outline" size={24} color="black" style={styles.actionIconRight} />
-      </View>
-    </View>
+        <PostsList/>
 
     </ScrollView>
   );
@@ -420,6 +271,8 @@ const styles = StyleSheet.create({
   },
   description: {
     marginTop: 10,
+    fontWeight: '300',
+    lineHeight: 25
   },
   moreTextContainer: {
     alignItems: 'flex-end',

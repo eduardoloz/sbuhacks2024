@@ -23,7 +23,7 @@ const CreateScreen = ({ navigation }) => {
       headerLeft: () => (
         <TouchableOpacity style={{ marginLeft: 10 }} onPress={() => alert('Menu clicked!')}>
     <Image
-      source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }} // 여기에 실제 이미지 URL을 사용하세요
+      source={{ uri: 'https://ifh.cc/g/lF2da4.jpg' }} // 여기에 실제 이미지 URL을 사용하세요
       style={{
         width: 30, 
         height: 30, 
@@ -55,124 +55,144 @@ const CreateScreen = ({ navigation }) => {
 
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.itemsContainer}>
         {/* 아이템 예시, 필요한 만큼 반복 */}
+        
+
+
+
         <View style={styles.item}>
           <Image
             style={styles.profileImage}
-            source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }} // 실제 이미지 URL 사용
+            source={{ uri: 'https://ifh.cc/g/8qDt4G.jpg' }} // 실제 이미지 URL 사용
           />
-          <Text style={styles.profileName}>User Name</Text>
-          <Text style={styles.rankNumber}>1</Text>
+          <Text style={styles.profileName}>Elizabeth</Text>
+          
+        </View>
+        <View style={styles.redItem}>
+          <Image
+            style={styles.profileImage}
+            source={{ uri: 'https://ifh.cc/g/D26Vlo.jpg' }} // 실제 이미지 URL 사용
+          />
+          <Text style={styles.profileRedName}>Alexander</Text>
+          
+        </View>
+        <View style={styles.redItem}>
+          <Image
+            style={styles.profileImage}
+            source={{ uri: 'https://ifh.cc/g/Al1MYa.jpg' }} // 실제 이미지 URL 사용
+          />
+          <Text style={styles.profileRedName}>Adrianna</Text>
+          
         </View>
         <View style={styles.item}>
           <Image
             style={styles.profileImage}
-            source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }} // 실제 이미지 URL 사용
+            source={{ uri: 'https://ifh.cc/g/W9MnjG.jpg' }} // 실제 이미지 URL 사용
           />
-          <Text style={styles.profileName}>User Name</Text>
-          <Text style={styles.rankNumber}>2</Text>
+          <Text style={styles.profileName}>Genevieve</Text>
+          
         </View>
+
         <View style={styles.item}>
           <Image
             style={styles.profileImage}
-            source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }} // 실제 이미지 URL 사용
+            source={{ uri: 'https://ifh.cc/g/Jc1tf7.jpg' }} // 실제 이미지 URL 사용
           />
-          <Text style={styles.profileName}>User Name</Text>
-          <Text style={styles.rankNumber}>3</Text>
-        </View>
-        <View style={styles.item}>
-          <Image
-            style={styles.profileImage}
-            source={{ uri: 'https://ifh.cc/g/bmacV6.jpg' }} // 실제 이미지 URL 사용
-          />
-          <Text style={styles.profileName}>User Name</Text>
-          <Text style={styles.rankNumber}>4</Text>
+          <Text style={styles.profileName}>Emily</Text>
+          
         </View>
 
         
       </ScrollView>
     </View>
     <View style={styles.friendsWholeContainer}>
-    <View style={styles.friendsContainer}>
+    <View style={styles.friendsRedContainer}>
       <Image
-        source={{ uri: "https://ifh.cc/g/bmacV6.jpg" }}
+      
+        source={{ uri: "https://ifh.cc/g/4VYvJr.jpg" }}
         style={styles.image}
       />
       <View style={styles.infoContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.details}>Hours: {volunteerHours}</Text>
-        <Text style={styles.details}>Count: {volunteerCount}</Text>
+        <Text style={styles.redName}>Joecepht</Text>
+        <Text style={styles.redDetails}>Increase by 2$ within a week</Text>
+
       </View>
-      <Text style={styles.tip}>Tip: ${tip}</Text>
+      <Text style={styles.redTip}>Tip: 4$</Text>
+    </View>
+    </View>
+    <View style={styles.friendsWholeContainer}>
+    <View style={styles.friendsRedContainer}>
+      <Image
+      
+        source={{ uri: "https://ifh.cc/g/VZWtLN.jpg" }}
+        style={styles.image}
+      />
+      <View style={styles.infoContainer}>
+        <Text style={styles.redName}>Michael</Text>
+        <Text style={styles.redDetails}>Increase by 3$ within a week</Text>
+
+      </View>
+      <Text style={styles.redTip}>Tip: 5$</Text>
     </View>
     </View>
     <View style={styles.friendsWholeContainer}>
     <View style={styles.friendsContainer}>
       <Image
-        source={{ uri: "https://ifh.cc/g/bmacV6.jpg" }}
+      
+      
+        source={{ uri: "https://ifh.cc/g/NA6aHJ.jpg" }}
         style={styles.image}
       />
       <View style={styles.infoContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.details}>Hours: {volunteerHours}</Text>
-        <Text style={styles.details}>Count: {volunteerCount}</Text>
+        <Text style={styles.name}>willium</Text>
+        <Text style={styles.details}>Volunteer Hours: 5, Count: 3</Text>
       </View>
-      <Text style={styles.tip}>Tip: ${tip}</Text>
+      <Text style={styles.tip}>Tip: 3$</Text>
     </View>
     </View>
     <View style={styles.friendsWholeContainer}>
     <View style={styles.friendsContainer}>
       <Image
-        source={{ uri: "https://ifh.cc/g/bmacV6.jpg" }}
+      
+      
+        source={{ uri: "https://ifh.cc/g/mmvtYt.jpg" }}
         style={styles.image}
       />
       <View style={styles.infoContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.details}>Hours: {volunteerHours}</Text>
-        <Text style={styles.details}>Count: {volunteerCount}</Text>
+        <Text style={styles.name}>Linda</Text>
+        <Text style={styles.details}>Volunteer Hours: 3, Count: 2</Text>
       </View>
-      <Text style={styles.tip}>Tip: ${tip}</Text>
+      <Text style={styles.tip}>Tip: 2$</Text>
     </View>
     </View>
     <View style={styles.friendsWholeContainer}>
-    <View style={styles.friendsContainer}>
+    <View style={styles.friendsRedContainer}>
       <Image
-        source={{ uri: "https://ifh.cc/g/bmacV6.jpg" }}
+      
+
+        source={{ uri: "https://ifh.cc/g/DJN7ry.jpg" }}
         style={styles.image}
       />
       <View style={styles.infoContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.details}>Hours: {volunteerHours}</Text>
-        <Text style={styles.details}>Count: {volunteerCount}</Text>
+        <Text style={styles.redName}>Jennifer</Text>
+        <Text style={styles.redDetails}>Increase by 3$ within a week</Text>
+
       </View>
-      <Text style={styles.tip}>Tip: ${tip}</Text>
+      <Text style={styles.redTip}>Tip: 5$</Text>
     </View>
     </View>
     <View style={styles.friendsWholeContainer}>
-    <View style={styles.friendsContainer}>
+    <View style={styles.friendsRedContainer}>
       <Image
-        source={{ uri: "https://ifh.cc/g/bmacV6.jpg" }}
+            
+
+        source={{ uri: "https://ifh.cc/g/5ckZQ6.jpg" }}
         style={styles.image}
       />
       <View style={styles.infoContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.details}>Hours: {volunteerHours}</Text>
-        <Text style={styles.details}>Count: {volunteerCount}</Text>
+        <Text style={styles.redName}>James</Text>
+        <Text style={styles.redDetails}>Increase by 4$ within a week</Text>
       </View>
-      <Text style={styles.tip}>Tip: ${tip}</Text>
-    </View>
-    </View>
-    <View style={styles.friendsWholeContainer}>
-    <View style={styles.friendsContainer}>
-      <Image
-        source={{ uri: "https://ifh.cc/g/bmacV6.jpg" }}
-        style={styles.image}
-      />
-      <View style={styles.infoContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.details}>Hours: {volunteerHours}</Text>
-        <Text style={styles.details}>Count: {volunteerCount}</Text>
-      </View>
-      <Text style={styles.tip}>Tip: ${tip}</Text>
+      <Text style={styles.redTip}>Tip: 5$</Text>
     </View>
     </View>
     
@@ -204,10 +224,24 @@ const styles = StyleSheet.create({
   rankingText: {
     fontSize: 30,
     fontWeight: '200',
+    marginLeft:10,
     
   },
   itemsContainer: {
     marginTop: 10,
+  },
+  redItem: {
+    backgroundColor: '#E73215',
+    borderRadius: 15,
+    padding: 10,
+    alignItems: 'center',
+    marginRight: 10,
+    marginBottom: 30,
+    width: 100,
+    height: 100,
+  },
+  profileRedName: {
+    color: 'white'
   },
   item: {
     backgroundColor: 'white',
@@ -215,7 +249,9 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     marginRight: 10,
-    marginBottom: 30
+    marginBottom: 30,
+    width: 100,
+    height: 100,
   },
   profileImage: {
     width: 50,
@@ -224,7 +260,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   profileName: {
-    marginBottom: 5,
+    marginTop: 5,
+    
   },
   rankNumber: {
     fontSize: 16,
@@ -279,6 +316,21 @@ const styles = StyleSheet.create({
     paddingLeft: 10
 
   },
+  friendsRedContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#E73215',
+    borderRadius: 25,
+    padding: 10,
+    marginVertical: 8,
+    justifyContent: 'space-between', // 내용을 양 끝으로 분산
+  },
+  redName: {
+    color: 'white'
+  },
+  redDetails: {
+    color: 'white'
+  },
   friendsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -303,6 +355,12 @@ const styles = StyleSheet.create({
   },
   details: {
     fontSize: 14,
+  },
+  redTip: {
+    color: 'white',
+    marginRight: 20,
+    fontSize: 12, // Tip 글씨를 작게 설정
+    fontWeight: 'bold',
   },
   tip: {
     fontSize: 12, // Tip 글씨를 작게 설정

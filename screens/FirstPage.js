@@ -2,45 +2,13 @@ import React, { useEffect } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const { width, height } = Dimensions.get('window');
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAlo81_yIneGVYGfgsScNAn7r4HVndcgkI",
-  authDomain: "sbuhacks-f2397.firebaseapp.com",
-  databaseURL: "https://sbuhacks-f2397-default-rtdb.firebaseio.com",
-  projectId: "sbuhacks-f2397",
-  storageBucket: "sbuhacks-f2397.appspot.com",
-  messagingSenderId: "470150391134",
-  appId: "1:470150391134:web:fb7d3a41c582860f441bcf",
-  measurementId: "G-WQ8E3X2425"
-};
 
-// Firebase 앱 초기화
-const app = initializeApp(firebaseConfig);
-// Firestore 인스턴스 가져오기
-const db = getFirestore(app);
 
 const YourComponent = ({ navigation }) => {
-  useEffect(() => {
-    const addData = async () => {
-      try {
-        const docRef = await addDoc(collection(db, "users"), {
-          first: "Ada",
-          last: "Lovelace",
-          born: 1815
-        });
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-    };
-
-    addData();
-  }, []);
-
+  
   return (
     <View style={styles.container}>
       <Image

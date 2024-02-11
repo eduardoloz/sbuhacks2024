@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity, KeyboardAvoidingView, Platform, Dimensions, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Alert } from 'react-native';
+
+
 const { width, height } = Dimensions.get('window');
+
+
 
 const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState('');
