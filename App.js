@@ -11,6 +11,7 @@ import LoginPage from "./screens/LoginPage";
 import MainPage from "./screens/MainPage";
 import ProfileCard from "./screens/ProfileCard"
 
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
