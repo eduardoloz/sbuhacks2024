@@ -1,9 +1,9 @@
 // Import the functions you need from the SDKs you need
-const { initializeApp } = require("firebase/app");
-const { getStorage } = require ("firebase/storage");
-const { getAnalytics } = require ("firebase/analytics");
-const { getDatabase } = require ("firebase/database");
-const { getFirestore, doc, setDoc } = require ("firebase/firestore");
+const { initializeApp } = require('firebase/app');
+const { getStorage } = require ('firebase/storage');
+const { getAnalytics } = require ('firebase/analytics');
+const { getDatabase } = require ('firebase/database');
+const { getFirestore, doc, setDoc } = ('firebase/firestore');
 const {firestore} = require ("firebase");
 
 
