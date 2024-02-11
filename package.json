@@ -20,8 +20,9 @@
     "expo-status-bar": "~1.11.1",
     "firebase": "^10.8.0",
     "firebase-admin": "^12.0.0",
-    "react": "^16.13.1",
-    "react-native": "^0.63.5",
+    "mongodb": "6.3",
+    "react": "18.2.0",
+    "react-native": "^0.73.4",
     "react-native-vector-icons": "^10.0.3"
   },
   "devDependencies": {
