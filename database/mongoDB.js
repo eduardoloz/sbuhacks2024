@@ -18,6 +18,15 @@ async function connectToMongo() {
   }
 }
 
+async function disconnectFromMongo() {
+  try {
+    await client.close();
+    console.log("Disconnected from MongoDB");
+  } catch (e) {
+    console.error("Could not disconnect from MongoDB", e);
+  }
+}
+
 async function addPerson(name, hours, events, followers) {
   const database = client.db('VolunteerProject');
   const people = database.collection('People');
@@ -33,26 +42,16 @@ async function getPeople() {
   return peopleList;
 }
 
-
-connectToMongo();
-
-
-try{
-  addPerson('Julia Martin', 1205, 42, 4742043);
-  addPerson('Charlie Miller', 1070, 282, 5985972);
-  addPerson('Frank Lopez', 1786, 243, 3923529);
-  addPerson('Tina White', 1830, 249, 4980174);
-  addPerson('Liam Hernandez', 1126, 211, 4543154);
-  addPerson('Grace Anderson', 754, 156, 1906778);
-  addPerson('Vince Jones', 1770, 155, 8614337);
-  addPerson('Tina Taylor', 30, 294, 4542128);
-  addPerson('Olivia Brown', 575, 98, 5894062);
-  addPerson('Liam Brown', 333, 132, 5755159);
-  addPerson('Kevin Lopez', 792, 136, 6537960);
-} catch (e) {
-  console.error(":(",e);
+async function getTopVolunteers() {
+  const database = client.db('VolunteerProject');
+  const people = database.collection('People');
+  const topPeoples = await people.find({})
+  .sort({ hours: -1 }) // Sort in descending order by hours
+  .limit(10) // Limit the result to top 10
+  .toArray(); // Convert to array
+  console.log(topPeoples);
+  return topPeoples;
 }
 
 
-
-
+export { connectToMongo, disconnectFromMongo, addPerson, getPeople, getTopVolunteers};
