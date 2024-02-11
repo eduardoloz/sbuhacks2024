@@ -6,6 +6,8 @@ import OpportunitiesPage from './OpportunitiesPage';
 import RankingPage from './RankingPage';
 import ProfileScreen from './ProfileScreen';
 import DonationPage from './DonationPage';
+import ProfileCard from './ProfileCard';
+import { Ionicons } from '@expo/vector-icons';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -16,7 +18,7 @@ export default function MainScreen() {
       <BottomTab.Screen name="OpportunitiesPage" component={OpportunitiesPage} />
       <BottomTab.Screen name="DonationPage" component={DonationPage} />
       <BottomTab.Screen name="RankingPage" component={RankingPage} />
-      <BottomTab.Screen name="Profile" component={ProfileScreen} />
+      <BottomTab.Screen name="Profile" component={ProfileCard} />
     </BottomTab.Navigator>
     
     
