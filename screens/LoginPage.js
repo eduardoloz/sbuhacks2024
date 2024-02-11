@@ -12,6 +12,15 @@ const { width, height } = Dimensions.get('window');
 const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const handleLogin = () => {
+    if (email === 'joh9911' && password === '1234') {
+      // 아이디와 비밀번호가 모두 일치하는 경우
+      navigation.navigate('Main');
+    } else {
+      // 일치하지 않는 경우
+      Alert.alert('Login Failed', 'The username or password you entered is incorrect.');
+    }
+  };
   return (
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
     <ScrollView contentContainerStyle={styles.scrollView}>
@@ -38,7 +47,7 @@ const LoginPage = ({navigation}) => {
 
       </View>
 
-      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Main')}>
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
       </ScrollView>
