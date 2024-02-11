@@ -4,7 +4,6 @@ const uri = "mongodb+srv://eduardolozanonaranjo:NpddpsaUjkR8WbZN@volunteerprojec
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri)
 
-
 async function connectToMongo() {
   try {
       await client.connect();
