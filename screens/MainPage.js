@@ -5,7 +5,7 @@ import { ScrollView, View, Text, Image, StyleSheet, TextInput, TouchableOpacity,
 import OpportunitiesPage from './OpportunitiesPage';
 import RankingPage from './RankingPage';
 import ProfileScreen from './ProfileScreen';
-import DonationPage from './DonationPage';
+import SearchScreen from './SearchScreen';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -13,9 +13,9 @@ export default function MainScreen() {
   return (
     
     <BottomTab.Navigator>
-      <BottomTab.Screen name="OpportunitiesPage" component={OpportunitiesPage} />
-      <BottomTab.Screen name="DonationPage" component={DonationPage} />
-      <BottomTab.Screen name="RankingPage" component={RankingPage} />
+      <BottomTab.Screen name="Feed" component={FeedScreen} />
+      <BottomTab.Screen name="Search" component={SearchScreen} />
+      <BottomTab.Screen name="Create" component={CreateScreen} />
       <BottomTab.Screen name="Profile" component={ProfileScreen} />
     </BottomTab.Navigator>
     

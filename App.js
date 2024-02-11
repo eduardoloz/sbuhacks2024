@@ -5,10 +5,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
+
 import FirstPage from "./screens/FirstPage";
 import LoginPage from "./screens/LoginPage";
 import MainPage from "./screens/MainPage";
 
+import { firebase } from '@react-native-firebase/app';
+
+// Initialize Firebase
+firebase.initializeApp();
 
 const Stack = createNativeStackNavigator();
 
