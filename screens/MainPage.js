@@ -6,6 +6,7 @@ import OpportunitiesPage from './OpportunitiesPage';
 import RankingPage from './RankingPage';
 import ProfileScreen from './ProfileScreen';
 import DonationPage from './DonationPage';
+import ProfileCard from './ProfileCard';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -39,7 +40,7 @@ export default function MainScreen() {
       <BottomTab.Screen name="OpportunitiesPage" component={OpportunitiesPage} options={{ tabBarLabel: 'Opportunities' }} />
       <BottomTab.Screen name="DonationPage" component={DonationPage} options={{ tabBarLabel: 'Donate' }} />
       <BottomTab.Screen name="RankingPage" component={RankingPage}  options={{ tabBarLabel: 'Ranking' }}/>
-      <BottomTab.Screen name="Profile" component={ProfileScreen} options={{ tabBarLabel: 'Profile' }}/>
+      <BottomTab.Screen name="Profile" component={ProfileCard} options={{ tabBarLabel: 'Profile' }}/>
 
     </BottomTab.Navigator>
   );

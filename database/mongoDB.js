@@ -54,4 +54,3 @@ async function getTopVolunteers() {
 }
 
 
-export { connectToMongo, disconnectFromMongo, addPerson, getPeople, getTopVolunteers};
