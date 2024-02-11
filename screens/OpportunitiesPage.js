@@ -136,7 +136,7 @@ const FeedScreen = ({ navigation }) => {
         fontWeight: 'bold',
       },
       headerLeft: () => (
-        <TouchableOpacity style={{ marginLeft: 10 }} onPress={() => navigation.navigate("ProfileCard")}>
+        <TouchableOpacity style={{ marginLeft: 10 }} onPress={() => alert('Menu clicked!')}>
           <Ionicons name="menu" size={25} color="black" />
         </TouchableOpacity>
       ),

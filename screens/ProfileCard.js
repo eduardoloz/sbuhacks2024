@@ -2,10 +2,23 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // expo 사용 시
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native'; // React Navigation의 useNavigation 훅을 임포트
+
 
 const { width, height } = Dimensions.get('window');
 
+const BackButton = () => {
+  const navigation = useNavigation(); // useNavigation 훅을 사용하여 navigation 객체를 가져옴
 
+  return (
+    <TouchableOpacity 
+      style={styles.backIcon} 
+      onPress={() => navigation.goBack()} // onPress 이벤트에서 goBack 메소드를 호출
+    >
+      <Ionicons name="arrow-back" size={24} color="white" />
+    </TouchableOpacity>
+  );
+};
 
 const ProfileCard = ({ route }) => {
   const { userName,
@@ -19,9 +32,7 @@ const ProfileCard = ({ route }) => {
         source={{ uri: postImageUri }}
         style={styles.topImage}
       />
-      <TouchableOpacity style={styles.backIcon}>
-        <Ionicons name="arrow-back" size={24} color="white" />
-      </TouchableOpacity>
+      <BackButton/>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{userName}</Text>
         <Text style={styles.distance}>5 miles</Text>
