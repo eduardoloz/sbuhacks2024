@@ -20,7 +20,7 @@ async function fetchDataForOpportunities(db) {
     const citiesCol = collection(db, 'Opportunities');
   const citySnapshot = await getDocs(citiesCol);
   const cityList = citySnapshot.docs.map(doc => doc.data());
-  console.log(cityList);
+  // console.log(cityList);
   return cityList;
   };
 
@@ -53,17 +53,32 @@ async function fetchDataForOpportunities(db) {
   async function fetchData() {
     try {
       const data = await fetchDataForOpportunities(db); // Assuming this function returns a Promise
-      console.log(data); // Log the fetched data
+      // console.log(data); // Log the fetched data
     } catch (error) {
       console.error('Error fetching data:', error); // Handle any errors
     }
-    return data;
+    return;
   }
   
-  const data = fetchData();
-  console.log(data); // Log the fetched data
+  const json = JSON.stringify(fetchData());
+  // console.log(json); // Log the fetched data
 
+  // Example JSON string
+const jsonString = JSON.stringify(fetchData());
 
+// Parse the JSON string into a JavaScript object
+const data = JSON.parse(jsonString);
+
+// Separate the properties into different variables
+const name = json.distance;
+const age = data.name;
+const city = data.numberOfApplicants;
+
+// Print the values of the variables
+console.log(name); // Output: John
+// console.log(age); // Output: 30
+// console.log(city); // Output: New York
+// console.log(jsonString); // Log the fetched data
 
 
 
