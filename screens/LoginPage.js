@@ -13,7 +13,7 @@ const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const handleLogin = () => {
-    if (email === 'joh9911' && password === '1234') {
+    if (email === '1234@stonybrook.edu' && password === '1234') {
       // 아이디와 비밀번호가 모두 일치하는 경우
       navigation.navigate('Main');
     } else {
