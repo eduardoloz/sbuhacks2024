@@ -13,6 +13,7 @@ export default function MainScreen() {
   return (
     <BottomTab.Navigator
     
+
       screenOptions={({ route }) => ({
         tabBarActiveTintColor: '#E73215', // 활성 탭의 아이콘 색상
         tabBarInactiveTintColor: 'gray', // 비활성 탭의 아이콘 색상
@@ -39,6 +40,7 @@ export default function MainScreen() {
       <BottomTab.Screen name="DonationPage" component={DonationPage} options={{ tabBarLabel: 'Donate' }} />
       <BottomTab.Screen name="RankingPage" component={RankingPage}  options={{ tabBarLabel: 'Ranking' }}/>
       <BottomTab.Screen name="Profile" component={ProfileScreen} options={{ tabBarLabel: 'Profile' }}/>
+
     </BottomTab.Navigator>
   );
 }
