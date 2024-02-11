@@ -155,7 +155,7 @@ const FeedScreen = ({ navigation }) => {
 
       <Image
         style={styles.postImage}
-        source={{ uri: 'https://ifh.cc/g/q0JLPQ.jpg' }}
+        source={{ uri: 'https://ifh.cc/g/yRPn88.jpg' }}
       />
       
       <Text style={styles.description}>Photo description here...</Text>
@@ -411,9 +411,12 @@ const styles = StyleSheet.create({
     alignItems: 'right'
   },
   postImage: {
-    width: '100%',
-    height: 200,
+    width: width,
+    height: 240,
     marginTop: 10,
+    alignItems: 'center',
+    alignSelf: 'center',
+    borderRadius: 15,
   },
   description: {
     marginTop: 10,
