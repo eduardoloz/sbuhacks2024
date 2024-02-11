@@ -10,7 +10,7 @@ import FirstPage from "./screens/FirstPage";
 import LoginPage from "./screens/LoginPage";
 import MainPage from "./screens/MainPage";
 import ProfileCard from "./screens/ProfileCard"
-
+import OpportunitiesCard from "./screens/OpportunitiesCard"
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +23,7 @@ const App = () => {
         <Stack.Screen name="LoginPage" component={LoginPage} options={{ headerShown: false }} />
         <Stack.Screen name="Main" component={MainPage} options={{ headerShown: false }} />
         <Stack.Screen name="ProfileCard" component={ProfileCard} options={{ headerShown: false }} />
-
+        <Stack.Screen name="OpportunitiesCard" component={OpportunitiesCard} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

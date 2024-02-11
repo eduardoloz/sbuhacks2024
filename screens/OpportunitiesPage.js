@@ -71,7 +71,7 @@ const PostItem = ({ item }) => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate('ProfileCard', {
+    navigation.navigate('OpportunitiesCard', {
       userName: item.userName,
       description: item.description,
       postImageUri: item.postImageUri,
